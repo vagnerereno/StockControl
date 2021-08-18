@@ -16,6 +16,7 @@ public class AddProductView extends javax.swing.JFrame {
      */
     public AddProductView() {
         initComponents();
+        this.setTitle("Gerenciar Produtos");
         //setExtendedState(MAXIMIZED_BOTH);
     }
 

@@ -17,6 +17,7 @@ public class ProductOutputView extends javax.swing.JFrame {
     public ProductOutputView() {
         initComponents();
         //setExtendedState(MAXIMIZED_BOTH);
+        this.setTitle("Saída de Produtos");
     }
 
     /**

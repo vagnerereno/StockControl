@@ -16,6 +16,7 @@ public class ReportView extends javax.swing.JFrame {
      */
     public ReportView() {
         initComponents();
+        this.setTitle("Relatórios");
     }
 
     /**

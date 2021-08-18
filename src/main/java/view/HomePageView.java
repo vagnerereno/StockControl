@@ -16,6 +16,7 @@ public class HomePageView extends javax.swing.JFrame {
      */
     public HomePageView() {
         initComponents();
+        this.setTitle("Sistema de Gerenciamento de Estoque");
     }
 
     /**
