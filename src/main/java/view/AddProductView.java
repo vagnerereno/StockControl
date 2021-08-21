@@ -5,18 +5,25 @@
  */
 package view;
 
+import controller.ProductController;
+import entity.Product;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author vagne
  */
 public class AddProductView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AddProductView
-     */
+    ProductController productController;
+
     public AddProductView() {
         initComponents();
         this.setTitle("Gerenciar Produtos");
+        productController = new ProductController();
         //setExtendedState(MAXIMIZED_BOTH);
     }
 
@@ -46,8 +53,8 @@ public class AddProductView extends javax.swing.JFrame {
         stockQuantity = new javax.swing.JTextField();
         productMarginProfit = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        buttonAddProduct = new javax.swing.JButton();
+        buttonCancelAddProduct = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
@@ -115,21 +122,21 @@ public class AddProductView extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel9.setText("Entrada de Estoque");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ok_icon.png"))); // NOI18N
-        jButton1.setText("  Gravar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonAddProduct.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        buttonAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ok_icon.png"))); // NOI18N
+        buttonAddProduct.setText("  Gravar");
+        buttonAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonAddProductActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/x_icon.png"))); // NOI18N
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonCancelAddProduct.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        buttonCancelAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/x_icon.png"))); // NOI18N
+        buttonCancelAddProduct.setText("Cancelar");
+        buttonCancelAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonCancelAddProductActionPerformed(evt);
             }
         });
 
@@ -153,9 +160,9 @@ public class AddProductView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
-                        .addComponent(jButton1)
+                        .addComponent(buttonAddProduct)
                         .addGap(32, 32, 32)
-                        .addComponent(jButton2)
+                        .addComponent(buttonCancelAddProduct)
                         .addGap(77, 77, 77))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,8 +266,8 @@ public class AddProductView extends javax.swing.JFrame {
                                 .addComponent(productSalePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(buttonCancelAddProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(69, Short.MAX_VALUE))))
         );
 
@@ -289,19 +296,34 @@ public class AddProductView extends javax.swing.JFrame {
         productMarginProfit.setEditable(false);
     }//GEN-LAST:event_productMarginProfitActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void buttonAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddProductActionPerformed
+        String date = productReajustDate.getText();
+        java.sql.Date dateFormated = null;
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            dateFormated = new java.sql.Date(format.parse(date).getTime());
+
+            Product product = new Product(Integer.parseInt(codProduct.getText()), productName.getText(), productDescription.getText(),
+                    Integer.parseInt(stockQuantity.getText()), Double.parseDouble(productCostPrice.getText()),
+                    Double.parseDouble(productSalePrice.getText()), Integer.parseInt(productMarginProfit.getText()),
+                    dateFormated);
+            productController.addNewProduct(product);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao inserir produto. Verifique os campos e tente novamente.");
+            Logger.getLogger(AddProductView.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }//GEN-LAST:event_buttonAddProductActionPerformed
+
+    private void buttonCancelAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelAddProductActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonCancelAddProductActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAddProduct;
+    private javax.swing.JButton buttonCancelAddProduct;
     private javax.swing.JTextField codProduct;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

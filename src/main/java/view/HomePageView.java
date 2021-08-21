@@ -63,6 +63,11 @@ public class HomePageView extends javax.swing.JFrame {
         stock.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         stock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stock_icon.png"))); // NOI18N
         stock.setText(" Estoque");
+        stock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stockActionPerformed(evt);
+            }
+        });
 
         reports.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         reports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/report_icon.png"))); // NOI18N
@@ -160,6 +165,10 @@ public class HomePageView extends javax.swing.JFrame {
     private void exitHomePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitHomePageActionPerformed
         this.dispose();
     }//GEN-LAST:event_exitHomePageActionPerformed
+
+    private void stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stockActionPerformed
 
     /**
      * @param args the command line arguments

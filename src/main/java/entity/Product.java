@@ -4,22 +4,25 @@
  * and open the template in the editor.
  */
 package entity;
+
+import java.util.Date;
+
 /**
  *
  * @author vagne
  */
-public class Produto {
+public class Product {
 
     private int codigo;
     private String nome;
     private String descricao;
-    private String quantidadeDisponivel;
-    private String precoCusto;
-    private String precoVenda;
-    private String magemLucro;
-    private String ultimoReajuste;
+    private int quantidadeDisponivel;
+    private double precoCusto;
+    private double precoVenda;
+    private int magemLucro;
+    private Date ultimoReajuste;
 
-     public Produto(int codigo, String nome, String descricao, String quantidadeDisponivel, String precoCusto, String precoVenda, String magemLucro, String ultimoReajuste) {
+     public Product(int codigo, String nome, String descricao, int quantidadeDisponivel, double precoCusto, double precoVenda, int magemLucro, Date ultimoReajuste) {
         this.codigo = codigo;
         this.nome = nome;
         this.descricao = descricao;
@@ -54,43 +57,43 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public String getQuantidadeDisponivel() {
+    public int getQuantidadeDisponivel() {
         return quantidadeDisponivel;
     }
 
-    public void setQuantidadeDisponivel(String quantidadeDisponivel) {
+    public void setQuantidadeDisponivel(int quantidadeDisponivel) {
         this.quantidadeDisponivel = quantidadeDisponivel;
     }
 
-    public String getPrecoCusto() {
+    public double getPrecoCusto() {
         return precoCusto;
     }
 
-    public void setPrecoCusto(String precoCusto) {
+    public void setPrecoCusto(double precoCusto) {
         this.precoCusto = precoCusto;
     }
 
-    public String getPrecoVenda() {
+    public double getPrecoVenda() {
         return precoVenda;
     }
 
-    public void setPrecoVenda(String precoVenda) {
+    public void setPrecoVenda(double precoVenda) {
         this.precoVenda = precoVenda;
     }
 
-    public String getMagemLucro() {
+    public int getMagemLucro() {
         return magemLucro;
     }
 
-    public void setMagemLucro(String magemLucro) {
+    public void setMagemLucro(int magemLucro) {
         this.magemLucro = magemLucro;
     }
 
-    public String getUltimoReajuste() {
+    public Date getUltimoReajuste() {
         return ultimoReajuste;
     }
 
-    public void setUltimoReajuste(String ultimoReajuste) {
+    public void setUltimoReajuste(Date ultimoReajuste) {
         this.ultimoReajuste = ultimoReajuste;
     }
 }

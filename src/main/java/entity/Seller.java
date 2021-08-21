@@ -9,12 +9,12 @@ package entity;
  *
  * @author vagne
  */
-public class Vendedores {
+public class Seller {
     
     String nome;
     int codigo;
     
-    public Vendedores(String nome, int codigo) {
+    public Seller(String nome, int codigo) {
         this.nome = nome;
         this.codigo = codigo;
     }

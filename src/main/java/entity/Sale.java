@@ -5,10 +5,16 @@
  */
 package entity;
 
+import java.util.Date;
+
 /**
  *
  * @author vagne
  */
-public class Pagamento {
-    double dinheiro, cheque, cartao, vale, cobrancaBancaria, pix;
+public class Sale {
+    Date data;
+    String codVendedor;
+    String codProduto;
+    String qtdProduto;
+    String valorTotal;
 }

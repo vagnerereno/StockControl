@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author vagne
@@ -49,11 +51,11 @@ public class ProductOutputView extends javax.swing.JFrame {
         codProduct = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         productQuantity = new javax.swing.JTextField();
-        unitarioPrice = new javax.swing.JTextField();
+        unitaryPrice = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         totalPrice = new javax.swing.JTextField();
-        buttonNewProduct = new javax.swing.JButton();
+        buttonNewProductSell = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         menu1.setLabel("File");
@@ -173,10 +175,10 @@ public class ProductOutputView extends javax.swing.JFrame {
             }
         });
 
-        buttonNewProduct.setText("+");
-        buttonNewProduct.addActionListener(new java.awt.event.ActionListener() {
+        buttonNewProductSell.setText("+");
+        buttonNewProductSell.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonNewProductActionPerformed(evt);
+                buttonNewProductSellActionPerformed(evt);
             }
         });
 
@@ -206,14 +208,14 @@ public class ProductOutputView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 12, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(unitarioPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(unitaryPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(totalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(buttonNewProduct)
+                        .addComponent(buttonNewProductSell)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -229,10 +231,10 @@ public class ProductOutputView extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(codProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                     .addComponent(productQuantity, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(unitarioPrice)
+                    .addComponent(unitaryPrice)
                     .addComponent(totalPrice))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonNewProduct)
+                .addComponent(buttonNewProductSell)
                 .addGap(6, 6, 6))
         );
 
@@ -298,9 +300,9 @@ public class ProductOutputView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewProductActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonNewProductActionPerformed
+    private void buttonNewProductSellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewProductSellActionPerformed
+
+    }//GEN-LAST:event_buttonNewProductSellActionPerformed
 
     private void buttonPagamentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPagamentActionPerformed
         PaymentMethod paymentMethod = new PaymentMethod();
@@ -316,7 +318,7 @@ public class ProductOutputView extends javax.swing.JFrame {
     }//GEN-LAST:event_totalPriceActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonNewProduct;
+    private javax.swing.JButton buttonNewProductSell;
     private javax.swing.JButton buttonPagament;
     private javax.swing.JTextField codProduct;
     private javax.swing.JButton exitOutPutView;
@@ -340,7 +342,7 @@ public class ProductOutputView extends javax.swing.JFrame {
     private javax.swing.JLabel textViewDate3;
     private javax.swing.JLabel textViewTotalPrice;
     private javax.swing.JTextField totalPrice;
-    private javax.swing.JTextField unitarioPrice;
+    private javax.swing.JTextField unitaryPrice;
     private javax.swing.JComboBox<String> vendedor1;
     // End of variables declaration//GEN-END:variables
 }
